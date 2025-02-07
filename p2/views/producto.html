@@ -1,0 +1,38 @@
+<!-- views/producto.html -->
+<!-- pagina de mas detalle para un producto -->
+{% extends "base.html" %} <!-- aquí usamos la herencia -->
+
+{% block content %}
+<!-- Mostrar la alerta si está definida (cuando un admin cambia el producto) -->
+{% if alert %}
+<div class="alert alert-success" role="alert">
+  {{ alert }}
+</div>
+{% endif %}
+
+  <h2>{{ producto.title }}</h2>
+  <div class="producto-detalle">
+    <img src="{{ producto.image }}" alt="{{ producto.title }}">
+    <p>{{ producto.description }}</p>
+    <p>Precio: ${{ producto.price }}</p>
+
+    {% if usuario.admin %}
+      <!-- Formulario para que el administrador edite el producto -->
+      <form action="/producto/{{ producto._id }}/editar" method="POST">
+        <label for="titulo">Nuevo título:</label>
+        <input type="text" id="titulo" name="titulo" value="{{ producto.title }}" required />
+        <label for="precio">Nuevo precio:</label>
+        <input type="number" id="precio" name="precio" step="0.01" value="{{ producto.price }}" required />
+        <button type="submit" class="btn btn-success">Actualizar producto</button>
+      </form>
+    {% else %}
+      <!-- Botón para añadir al carrito si no es administrador -->
+      <form action="/comprar/{{ producto._id }}" method="POST">
+        <button type="submit" class="btn btn-primary">Añadir al carrito</button>
+      </form>
+    {% endif %}
+  </div>
+{% endblock %}
+
+
+

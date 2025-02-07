@@ -1,0 +1,36 @@
+services:
+  tienda:
+    build: .
+    depends_on:
+      - mongo
+      - caddy
+    restart: unless-stopped
+    ports:
+      - 8000:8000 # Mapea el puerto 8000 del contenedor al 8000 del host
+    environment:
+      MONGO_URL: mongodb://root:example@mongo:27017/myProject?authSource=admin
+  mongo:
+    image: mongo
+    restart: unless-stopped
+    volumes:
+      - ./data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+
+  caddy:
+    image: caddy:alpine
+    restart: unless-stopped
+    ports: 
+      - 80:80
+      - 443:443
+    volumes:
+      - caddy-config:/config
+      - caddy-data:/data
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - ./public:/usr/share/caddy/public
+    
+volumes:
+  caddy-config:
+  caddy-data:
+

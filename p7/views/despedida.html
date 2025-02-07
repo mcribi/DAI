@@ -1,0 +1,19 @@
+<!-- views/despedida.html -->
+<!-- pagina que aparece una vez que sale un usuario -->
+{% extends "base.html" %} <!-- aquí usamos la herencia -->
+{% block content %}
+
+<!-- Contenedor principal -->
+<div class="container mt-5 text-center">
+    <!-- Título principal -->
+    <h1 class="mb-4" style="color: #027373;">Adiós {{ usuario }}. ¡Vuelve pronto!</h1> <!-- Titulo -->
+    <p class="mb-4">Esperamos verte de nuevo pronto. ¡Gracias por visitarnos!</p> <!-- Subtitulo -->
+
+    <!-- Botón para volver a la tienda -->
+    <a href="/" class="btn btn-secondary btn-lg mb-4">Volver a la Tienda</a>
+
+</div>
+
+{% endblock %}
+
+

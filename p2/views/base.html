@@ -1,0 +1,37 @@
+<!-- views/base.html -->
+<!-- se definen los elementos comunes y despues se extiende esta plantilla mediante herencia-->
+<!DOCTYPE html> <!-- Declaro el tipo de documento -->
+<html lang="es"> <!-- idioma español -->
+<head> <!-- cabecera -->
+  <meta charset="UTF-8"> <!-- Permite caracteres especiales -->
+  <title>{% block title %}Tienda{% endblock %}</title>  <!-- por defecto tiene este titulo, aunque en las plantillas hijas le cambio el titulo, si no se cambiase se quedaria ese -->
+  <!-- Enlace a la hoja de estilos de Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Enlace al CSS (estilo) -->
+  <link href="/public/css/styles.css" rel="stylesheet">
+  <script src="/public/ratings.js" defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- Para incluir las estrellas -->
+
+</head>
+<body> <!-- cuerpo -->
+  <header class="py-3"> <!-- para que este alineado -->
+    <div class="container">
+      <h1>Tienda online DAI (María Cribillés)</h1> <!--titulo principal de mi pagina web-->
+    </div>
+  </header>
+  
+  <main class="container mt-5">
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Incluir scripts y dependencias: Bootstrap JS, Popper.js, y jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+
+</body>
+</html>
+
+
+

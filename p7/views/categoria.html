@@ -1,0 +1,38 @@
+<!-- views/categoria.html -->
+<!-- pagina para mostrar los productos de cada categoria -->
+{% extends "base.html" %} <!-- aquí usamos la herencia -->
+
+{% block content %}
+    <h2>Productos en la categoría: {{ nombre }}</h2>
+    <div class="container mt-4">
+        <div class="row">
+            {% if productos|length == 0 %}<!-- si no hay productos en una determinada categoria se informa -->
+                <p>No hay productos disponibles en esta categoría.</p>
+            {% else %}
+                {% for producto in productos %}<!-- si hay productos se van a enseñar uno a uno -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100"> <!-- cada producto ira en una tarjeta -->
+                            <!-- Imagen del producto con tamaño ajustado -->
+                            <img src="{{ producto.image }}" class="card-img-top" alt="{{ producto.title }}" style="width: 100%; max-height: 200px; object-fit: contain;">
+                            <!-- informacion sobre cada producto -->
+                            <div class="card-body">
+                                <h5 class="card-title">{{ producto.title }}</h5>
+                                <p class="card-text">{{ producto.description }}</p>
+                                <p class="text-muted">Precio: ${{ producto.price }}</p>
+
+                                <!-- Boton para el enlace a detalles del producto -->
+                                <a href="/producto/{{ producto._id }}" class="btn btn-outline-primary btn-sm">Ver Detalle</a>
+                                
+                                <!-- Botón para añadir al carrito -->
+                                <form action="/comprar/{{ producto._id }}" method="POST" class="mt-2">
+                                    <button type="submit" class="btn btn-primary btn-sm">Añadir al carrito</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+

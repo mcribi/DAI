@@ -1,0 +1,22 @@
+<!-- views/carrito.html -->
+<!-- Pagina del carrito (activada solo cuando existen cosas en el carrito) donde lista los productos seleccionados -->
+{% extends "base.html" %} <!-- aquí usamos la herencia -->
+
+{% block content %}
+<h2>Carrito de Compras</h2>  <!-- titulo de la pagina -->
+{% if carrito and carrito.length > 0 %} <!-- verifica si hay productos en el carrito -->
+    <ul>
+        {% for producto in carrito %} <!-- listamos los productos-->
+            <li>
+                <h3>{{ producto.title }}</h3> <!-- titulo de cada producto -->
+                <p>Precio: ${{ producto.price }}</p> <!-- precio de cada producto -->
+                <img src="{{ producto.image }}" alt="{{ producto.title }}" style="width: 300px; height: auto;"> <!-- imagen de cada producto con un determinado tamaño -->
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="/checkout">Proceder a la compra</a> <!-- enlace a pagina para realizar el pago -->
+{% else %} <!-- si no hay productos en el carrito lanza un mensaje -->
+    <p>No hay productos en el carrito.</p>
+{% endif %}
+{% endblock %}
+

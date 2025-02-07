@@ -1,0 +1,10 @@
+<!-- views/checkout.html -->
+<!-- Pagina donde pagas los productos que hayas metido en el carrito-->
+{% extends "base.html" %} <!-- aquí usamos la herencia -->
+
+{% block content %} <!-- defino un bloque que se llama content -->
+  <h2>Proceder al Pago</h2>
+  <p>Total: ${{ total }}</p>  <!-- muestra el total de precio que nos ha costado la compra -->
+  <button onclick="alert('Compra realizada!')">Pagar</button> <!-- Mensaje confirmacion: se ejecuta una alerta en el navegador diciendo que ya lo hemos comprado -->
+{% endblock %}
+

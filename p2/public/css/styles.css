@@ -1,0 +1,98 @@
+/* public/css/styles.css */
+/* Para definir el estilo de mi pagina web  */
+
+/* Ajustar márgenes */
+body {
+  padding-bottom: 60px; /* Espacio para el footer=la parte inferior de la pagina web */
+}
+
+/* Ajuste de imágenes. Quiero mantener el tamaño original sin agrandarlas y que se vean todas iguales */
+.card-img-top {
+    max-width: 100%; /* Que no exceda el ancho de la tarjeta */
+    max-height: 300px; /* Limitar la altura máxima */
+    object-fit: scale-down; /* Ajuste para evitar que se agranden o recorten */
+    padding: 10px; /* Espacio alrededor de la imagen */
+    background-color: white; /* Fondo para las imágenes */
+}
+
+ /* Fondo de la pagina */
+body {
+    background-color: #A9D9D0; 
+}
+/* Fondo del encabezado*/
+header {
+    background-color: #fdfaf1;
+}
+
+/* Estilos de texto */
+.card-title { /* Título de cada producto en la tarjeta */
+    font-size: 1.1em; /* Tamaño fuente */
+    font-weight: bold; /* Texto en negrita */
+    color: #333; /* Letra en color gris */
+}
+
+.card-text { /* Descripción del producto en cada tarjeta */
+    font-size: 0.9em;
+    color: #666; /* Letra en color gris */
+}
+
+/* Precio en estilo resaltado */
+.text-muted {
+    color: #027373; /* Color verde oscuro */
+    font-weight: bold;
+    font-size: 1em;
+}
+
+/* Botones */
+.btn { /* Estilo base para todos los botones */
+    font-size: 0.9em;
+    padding: 8px 12px;
+    border-radius: 5px;
+}
+
+/* Boton de "Ver Detalle"*/
+.btn-outline-primary { 
+    color: #038C7F;
+    border-color: #038C7F;
+}
+
+.btn-outline-primary:hover { /* Para cuando se pasa por el cursor encima se pone un verde mas oscuro*/
+    background-color: #038C7F;
+    color: white;
+}
+
+/* Boton de "Añadir al carrito" */
+.btn-primary {
+    background-color: #027373;
+    border-color: #027373;
+}
+
+.btn-primary:hover {  /* Para cuando se pasa por el cursor encima se pone un verde mas oscuro*/
+    background-color: #004d40;
+    border-color: #004d40;
+}
+
+/* Estrellas básicas */
+.fa-star {
+  font-size: 20px;
+  color: #ccc; /* Gris por defecto */
+  cursor: pointer;
+}
+
+/* Estrellas seleccionadas */
+.fa-star.checked {
+  color: gold; /* Color dorado para estrellas seleccionadas */
+}
+
+/* Cambio de color al pasar el mouse */
+.fa-star:hover {
+  color: darkorange;
+}
+
+/* Cambiar todas las estrellas hasta la seleccionada al pasar el mouse */
+.fa-star:hover ~ .fa-star {
+  color: #ccc; /* Restablecer a gris */
+}
+
+
+

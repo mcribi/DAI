@@ -1,0 +1,26 @@
+:80 {
+    # Manejo de la ruta para la app React
+    handle_path /react/* {
+        root * /usr/share/caddy/react
+        try_files {path} /index.html
+        file_server
+    }
+
+    # Manejo de la ruta para archivos públicos
+    handle_path /public/* {
+        root * /usr/share/caddy/public
+        file_server
+    }
+    
+    # Reverse proxy para la tienda
+    handle_path /* {
+       reverse_proxy tienda:8000
+    }
+
+    # Página de error personalizada
+    handle_errors {
+        rewrite * /404.html
+        file_server
+    }
+
+}

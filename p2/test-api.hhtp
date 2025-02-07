@@ -1,0 +1,24 @@
+# Obtener todos los ratings de todos los productos 
+GET http://localhost:8000/api/ratings
+
+###
+
+# Obtener el rating de un producto por ID (he puesto un id de la bd porque el que hay 
+#en la practica el id=6719f538fdfbd218f753f044 no se encuentra en la bd)
+GET http://localhost:8000/api/ratings/671f62298e0d09b9b9e2edd2
+
+###
+
+# Actualizar el rating de un producto
+PUT http://localhost:8000/api/ratings/671f62298e0d09b9b9e2edd2
+Content-Type: application/json
+
+{
+  "rate": 1
+}
+
+### Obtener los primeros 5 ratings (desde el índice 0 al 4)
+# con el logger en la pantalla se va informando del proceso con logs
+GET http://localhost:8000/api/ratings?desde=0&hasta=4
+
+
